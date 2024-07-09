@@ -13,7 +13,7 @@ const WeatherButton = ({ cities, variants }) => {
             <Button variant="light">London</Button>
             <Button variant="warning">Madrid</Button> */}
             {cities.map((item, index) => {
-                return (<Button variant={variants[index]}>{item}</Button>)
+                return (<Button key={item} variant={variants[index]}>{item}</Button>)
             })}
         </div>
     )
