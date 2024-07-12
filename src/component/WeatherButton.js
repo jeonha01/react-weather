@@ -5,7 +5,7 @@ const WeatherButton = ({ cities, variants, selectedCity, handleCityChange }) => 
 
 
     return (
-        <div>
+        <div className='weather-button'>
             <Button variant={`${selectedCity == null ? "outline-secondary" : "secondary"}`} onClick={() => handleCityChange("current")}>Current Location</Button>
 
             {cities.map((city, index) => {

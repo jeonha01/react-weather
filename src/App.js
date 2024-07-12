@@ -16,6 +16,8 @@ let lang = "kr"
 
 // 나중에 꾸밀때
 // 1. 날씨에 따라 배경화면 바뀌게 해보기
+// 2. 검색기능?(여유가 될때)
+
 function App() {
   const [loading, setLoading] = useState(false)
   const [weather, setWeather] = useState(null)
