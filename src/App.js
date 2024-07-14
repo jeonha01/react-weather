@@ -14,15 +14,12 @@ let lang = "kr"
 // 5. 현재위치 버튼을 누르면 다시 현재위치 기반의 날씨가 나온다
 // 6. 데이터를 들고오는 동안 로딩 스피너가 돈다
 
-// 나중에 꾸밀때
-// 1. 날씨에 따라 배경화면 바뀌게 해보기
-// 2. 검색기능?(여유가 될때)
-
 function App() {
   const [loading, setLoading] = useState(false)
   const [weather, setWeather] = useState(null)
   const [city, setCity] = useState(null)
   const [apiError, setAPIError] = useState("");
+  const [icon, setIcon] = useState(null);
   const cities = ['Paris', 'München', 'London', 'Madrid']
   const variants = ['primary', 'danger', 'light', 'warning']
   const getCurrentLocation = () => {
@@ -39,6 +36,7 @@ function App() {
       const response = await fetch(url)
       const data = await response.json()
       setWeather(data)
+      setIcon(data.weather[0].icon)
       setLoading(false)
     } catch (err) {
       setAPIError(err.message)
@@ -52,6 +50,7 @@ function App() {
       const response = await fetch(url)
       const data = await response.json()
       setWeather(data)
+      setIcon(data.weather[0].icon)
       setLoading(false)
     } catch (err) {
       setAPIError(err.message)
@@ -69,6 +68,20 @@ function App() {
     }
   }, [city])
 
+  const bgChange = (city) => {
+    if (city === "Paris") {
+      return "Paris"
+    } else if (city === "München") {
+      return "München"
+    } else if (city === "London") {
+      return "London"
+    } else if (city === "Madrid") {
+      return "Madrid"
+    } else if (city === null) {
+      return "current"
+    }
+  }
+
   const handleCityChange = (city) => {
     if (city === "current") {
       setCity(null)
@@ -78,9 +91,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div className={`App ${bgChange(city)}`}>
       {loading ? (
-        <div className='container'>
+        <div className="container">
           <ClipLoader
             color="#f88c6b"
             loading={loading}
@@ -92,14 +105,13 @@ function App() {
           />
         </div>) : !apiError ? (<div className='container'>
 
-          <WeatherBox weather={weather} />
+          <WeatherBox weather={weather} icon={icon} />
           <WeatherButton cities={cities} handleCityChange={handleCityChange} variants={variants} selectedCity={city} />
         </div>) : (
         apiError
       )}
-
-
     </div>
+
   );
 }
 

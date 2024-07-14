@@ -5,6 +5,35 @@ body {
     background-size: cover;
 }
 
+.App {
+    transition: background-image 1s ease-in-out;
+}
+
+.current {
+    background-image: url(https://flexibits.com/img/new-fantastical/background/weather-background.jpg);
+    background-size: cover;
+}
+
+.Paris {
+    background-image: url(https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRnXs6f1K0EMQY7T-8_kQMcMRBqr05iWzMxIK_5Lrsu5zzbU-jEB8zfqfwkwAkvEDqT1gsFpU3CFyHq4z5smMOO-Km5F-JawzeoGjUKnw);
+    background-size: cover;
+}
+
+.München {
+    background-image: url(https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTaedQZrkUe6eyE_kixyPQ6axsd9QfOy6hdmyggfEGLECiPM9a_VtTzwxi-2qGrs7bYlBFBHkEYdQn9vKcsNJCVLuBmtx_OP8Zfk-PASw);
+    background-size: cover;
+}
+
+.London {
+    background-image: url(https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRsAKDADzuTprE39uzVRBDBBKRhFz1gygD5GAA2zKWnDL08-Gn1NXUSmcuphltyOsoNC1kzw2wjyyuG6WlxxRkCv9xRdgfVsqrwFtyiTg);
+    background-size: cover;
+}
+
+.Madrid {
+    background-image: url(https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQgR7HaLMdhwbhsCVZsaij_p5bBUBLEEqdH1f4FfQ99yylA72KDTM21GfkClJ-YCnggDVJObua8tmqAYonjOPbblxzXuHdj-csl9J7_nhc);
+    background-size: cover;
+}
+
 .container {
     display: flex;
     justify-content: center;
